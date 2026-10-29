@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Diagrama de Classes" id="imob-classes">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="usuario" value="Usuario&#xa;(auth-service)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="250" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="usuario_attr" value="- id: int (PK)&lt;br&gt;- nome: string&lt;br&gt;- email: string (único)&lt;br&gt;- senhaHash: string&lt;br&gt;- papel: Papel" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="usuario">
+          <mxGeometry y="36" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="usuario_line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;rotatable=0;" vertex="1" parent="usuario">
+          <mxGeometry y="126" width="250" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="usuario_met" value="+ registrar()&lt;br&gt;+ login()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="usuario">
+          <mxGeometry y="134" width="250" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="imovel" value="Imovel&#xa;(imoveis-service)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="700" y="160" width="260" height="236" as="geometry"/>
+        </mxCell>
+        <mxCell id="imovel_attr" value="- id: int (PK)&lt;br&gt;- titulo: string&lt;br&gt;- tipo: string&lt;br&gt;- preco: decimal&lt;br&gt;- endereco: string&lt;br&gt;- status: StatusImovel&lt;br&gt;- corretorId: int (FK Usuario)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="imovel">
+          <mxGeometry y="36" width="260" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="imovel_line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;rotatable=0;" vertex="1" parent="imovel">
+          <mxGeometry y="162" width="260" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="imovel_met" value="+ criar()&lt;br&gt;+ atualizar()&lt;br&gt;+ remover()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="imovel">
+          <mxGeometry y="170" width="260" height="66" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="visita" value="Visita&#xa;(imoveis-service)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="370" y="20" width="250" height="162" as="geometry"/>
+        </mxCell>
+        <mxCell id="visita_attr" value="- id: int (PK)&lt;br&gt;- dataHora: datetime&lt;br&gt;- imovelId: int (FK Imovel)&lt;br&gt;- clienteId: int (FK Usuario)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="visita">
+          <mxGeometry y="36" width="250" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="visita_line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;rotatable=0;" vertex="1" parent="visita">
+          <mxGeometry y="108" width="250" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="visita_met" value="+ agendar()&lt;br&gt;+ cancelar()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="visita">
+          <mxGeometry y="116" width="250" height="46" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="proposta" value="Proposta&#xa;(imoveis-service)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=36;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="370" y="380" width="250" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="proposta_attr" value="- id: int (PK)&lt;br&gt;- valor: decimal&lt;br&gt;- status: StatusProposta&lt;br&gt;- imovelId: int (FK Imovel)&lt;br&gt;- clienteId: int (FK Usuario)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="proposta">
+          <mxGeometry y="36" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="proposta_line" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;rotatable=0;" vertex="1" parent="proposta">
+          <mxGeometry y="126" width="250" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="proposta_met" value="+ enviar()&lt;br&gt;+ aceitar()&lt;br&gt;+ recusar()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="proposta">
+          <mxGeometry y="134" width="250" height="66" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="papel" value="«enumeration»&#xa;Papel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="papel_vals" value="CLIENTE&lt;br&gt;CORRETOR" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="papel">
+          <mxGeometry y="40" width="200" height="50" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stimovel" value="«enumeration»&#xa;StatusImovel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="700" y="440" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="stimovel_vals" value="DISPONIVEL&lt;br&gt;RESERVADO&lt;br&gt;VENDIDO&lt;br&gt;ALUGADO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="stimovel">
+          <mxGeometry y="40" width="220" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="stproposta" value="«enumeration»&#xa;StatusProposta" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="370" y="640" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="stproposta_vals" value="PENDENTE&lt;br&gt;ACEITA&lt;br&gt;RECUSADA" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;overflow=hidden;rotatable=0;html=1;" vertex="1" parent="stproposta">
+          <mxGeometry y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="cadastra (corretor)&#xa;1 .. 0..*" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="usuario" target="imovel">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="agenda (cliente)&#xa;1 .. 0..*" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="usuario" target="visita">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="envia (cliente)&#xa;1 .. 0..*" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="usuario" target="proposta">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="recebe&#xa;1 .. 0..*" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="imovel" target="visita">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="recebe&#xa;1 .. 0..*" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="imovel" target="proposta">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="usa" style="endArrow=open;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="usuario" target="papel">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="usa" style="endArrow=open;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="imovel" target="stimovel">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="usa" style="endArrow=open;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="proposta" target="stproposta">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

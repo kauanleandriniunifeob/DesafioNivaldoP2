@@ -1,0 +1,19 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "Microsserviço de autenticação da API da imobiliária",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "sequelize": "^6.37.3"
+  }
+}
